@@ -16,6 +16,8 @@
 
 # 效果
 
+[线上体验](https://wscats.github.io/flappy/html/index.html)
+
 <img width="250" align="left" src="./screenshots/1.png" />
 <img width="250" src="./screenshots/2.png" />
 
@@ -34,4 +36,4 @@
 # 作者
 
 | [<img src="https://avatars1.githubusercontent.com/u/17243165?s=460&v=4" width="60px;"/><br /><sub>Eno Yao</sub>](https://gitee.com/wscats) |
-| - |
+| ------------------------------------------------------------------------------------------------------------------------------------------ |
