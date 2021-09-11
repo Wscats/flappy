@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flappy Bird</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="288" height="512"></canvas>
+    <script>
+        const cvs = document.getElementById("canvas");
+        const ctx = cvs.getContext("2d");
+
+        const birdHeight = 26;
+        const birdWidth = 38;
+        const pipeNorthHeight = 242;
+        const pipeNorthWidth = 52;
+        const cvsHeight = 512;
+        const cvsWidth = 288;
+        const fgHeight = 118;
+        const fgWidth = 306;
+
+        const bird = new Image();
+        const bg = new Image();
+        const fg = new Image();
+        const pipeNorth = new Image();
+        const pipeSouth = new Image();
+
+        bird.src = "../entry/src/main/js/default/images/bird.png";
+        bg.src = "../entry/src/main/js/default/images/bg.png";
+        fg.src = "../entry/src/main/js/default/images/fg.png";
+        pipeNorth.src = "../entry/src/main/js/default/images/pipeNorth.png";
+        pipeSouth.src = "../entry/src/main/js/default/images/pipeSouth.png";
+
+        const gap = 85;
+        let constant = 0;
+
+        const bX = 10;
+        let bY = 150;
+
+        const gravity = 1.5;
+
+        let score = 0;
+
+        document.addEventListener("keydown", moveUp);
+
+        function moveUp() {
+            bY -= 25;
+        }
+
+        const pipe = [];
+
+        pipe[0] = {
+            x: cvsWidth,
+            y: 0
+        };
+
+        function draw() {
+            console.log('bird', 'height', bird.height, 'width', bird.width);
+            console.log('pipeNorth', 'height', pipeNorth.height, 'width', pipeNorth.width);
+            console.log('cvs', 'height', cvs.height, 'width', cvs.width);
+            console.log('fg', 'height', fg.height, 'width', fg.width);
+            ctx.drawImage(bg, 0, 0);
+            for (let i = 0; i < pipe.length; i++) {
+                constant = pipeNorthHeight + gap;
+                ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+                ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+                pipe[i].x--;
+                if (pipe[i].x == 125) {
+                    pipe.push({
+                        x: cvsWidth,
+                        y: Math.floor(Math.random() * pipeNorthHeight) - pipeNorthHeight
+                    });
+                }
+                if (bX + birdWidth >= pipe[i].x && bX <= pipe[i].x + pipeNorthWidth && (bY <= pipe[i].y + pipeNorthHeight || bY + birdHeight >= pipe[i].y + constant) || bY + birdHeight >= cvsHeight - fgHeight) {
+                    location.reload();
+                }
+                if (pipe[i].x == 5) {
+                    score++;
+                }
+            }
+            ctx.drawImage(fg, 0, cvsHeight - fgHeight);
+            ctx.drawImage(bird, bX, bY);
+            bY += gravity;
+            ctx.fillStyle = "#000";
+            ctx.font = "20px Verdana";
+            ctx.fillText("Score : " + score, 10, cvsHeight - 20);
+            // requestAnimationFrame(draw);
+            
+        }
+        setInterval(draw, 30);
+        // draw();
+    </script>
+</body>
+
+</html>

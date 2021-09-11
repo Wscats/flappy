@@ -1,0 +1,3 @@
+<div class="container">
+    <canvas ref="canvas" style="width: 280px; height: 512px;" ontouchend="moveUp"></canvas>
+</div>
