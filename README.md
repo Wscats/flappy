@@ -16,8 +16,6 @@
 
 # 效果
 
-[线上体验](https://wscats.github.io/flappy/html/index.html)
-
 <img width="250" align="left" src="./screenshots/1.png" />
 <img width="250" src="./screenshots/2.png" />
 
@@ -32,6 +30,7 @@
 1. 下载 [OpenHarmonyFlappyBird](https://gitee.com/wscats/OpenHarmonyFlappyBird) 项目工程，将工程导入 DevEco Studio 进行编译构建及运行调试。
 2. 进行编译构建，生成一个 HAP 应用安装包，生成 HAP 应用安装包。
 3. 安装运行后，即可在设备上查看应用示例运行效果，以及进行相关调试。
+4. [线上体验版本](https://wscats.github.io/flappy/html/index.html)。
 
 # 作者
 
