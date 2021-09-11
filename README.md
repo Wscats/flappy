@@ -1,6 +1,6 @@
 # OpenHarmonyFlappyBird
 
-基于 Canvas 组件制作 [FlappyBird](https://gitee.com/wscats/OpenHarmonyFlappyBird) 游戏。
+基于 Canvas 画布绘制 [FlappyBird](https://gitee.com/wscats/OpenHarmonyFlappyBird) 游戏。
 
 <img width="180" height="300px" src="./screenshots/3.gif" />
 
